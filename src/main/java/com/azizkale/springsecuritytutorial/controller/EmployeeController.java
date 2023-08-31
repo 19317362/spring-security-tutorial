@@ -1,4 +1,4 @@
-package com.azizkale.springsecuritytutorial.contoller;
+package com.azizkale.springsecuritytutorial.controller;
 
 import com.azizkale.springsecuritytutorial.service.EmployeeService;
 import com.azizkale.springsecuritytutorial.exception.EmployeeNotFoundException;
