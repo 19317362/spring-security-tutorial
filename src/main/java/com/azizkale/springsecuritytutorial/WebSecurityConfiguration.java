@@ -11,10 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled=true,prePostEnabled=true,jsr250Enabled=true)
+@EnableWebMvc
 public class WebSecurityConfiguration {
 
     @Bean
@@ -31,6 +33,7 @@ public class WebSecurityConfiguration {
                         .anyRequest().authenticated()
                 ).formLogin((form) -> form
                         .loginPage("/login").permitAll()
+                        .loginProcessingUrl("/scmt/login").permitAll()
                 )
                 .logout((logout) -> logout.permitAll())
                 .rememberMe(r->r.key("uniqueAndSecret"));
